@@ -2,7 +2,7 @@
 {
     internal class Program
     {
-        static void Main(string[] args)
+        static void Main(string[] args) 
         {
             TimeSpan interval = TimeSpan.FromMinutes(30);          
             Console.WriteLine("Укажите путь до каталога:");
@@ -47,7 +47,7 @@
         {
             if ((DateTime.Now - dir.LastAccessTime > interval) & !IsFilesUsedInInterval(dir, interval))
             {
-                Console.WriteLine($"Папка {dir.Name} не использовалась 30 минут и будет удалена:");
+                Console.WriteLine($"Папка {dir.Name} не использовалась 30 минут и будет удалена ");
                 try
                 {
                     dir.Delete(true);
