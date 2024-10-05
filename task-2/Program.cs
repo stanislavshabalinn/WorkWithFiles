@@ -1,10 +1,49 @@
-﻿namespace task_2
+﻿namespace Task2;
+
+// Программа на C# для определения приблизительного размера папки
+using System;
+using System.IO;
+
+class GFG
 {
-    internal class Program
+
+      static public void Main()
     {
-        static void Main(string[] args)
+
+        // Получаем информацию о каталоге с помощью метода DirectoryInfo()
+        DirectoryInfo folder = new DirectoryInfo("D://d2c articles");
+
+        // Вызов метода FolderSize() 
+        long totalFolderSize = folderSize(folder);
+
+        Console.WriteLine("Total folder size in bytes: " +
+                          totalFolderSize);
+    }
+
+    // Функция для расчета размера папки
+    static long folderSize(DirectoryInfo folder)
+    {
+        long totalSizeOfDir = 0;
+
+        // Все файлы в каталог
+        FileInfo[] allFiles = folder.GetFiles();
+
+        // Получение размера каждого файла
+        foreach (FileInfo file in allFiles)
         {
-            Console.WriteLine("Hello, World!");
+            totalSizeOfDir += file.Length;
         }
+
+        // Поиск подкаталогов
+        DirectoryInfo[] subFolders = folder.GetDirectories();
+
+        // Получение размеров каждого подкаталога 
+        foreach (DirectoryInfo dir in subFolders)
+        {
+            totalSizeOfDir += folderSize(dir);
+        }
+
+        // Общий размер 
+        return totalSizeOfDir;
     }
 }
