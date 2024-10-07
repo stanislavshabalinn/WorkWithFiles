@@ -16,6 +16,7 @@ namespace FinalTask
         public decimal AverageScore { get; set; }
     }
 
+
     internal class Program
     {
         static void Main(string[] args)
