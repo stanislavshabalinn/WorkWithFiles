@@ -11,7 +11,7 @@ class GFG
     {
 
         // Получаем информацию о каталоге с помощью метода DirectoryInfo()
-        DirectoryInfo folder = new DirectoryInfo("D://d2c articles");
+        DirectoryInfo folder = new DirectoryInfo("C:\\temp");
 
         // Вызов метода FolderSize() 
         long totalFolderSize = folderSize(folder);
